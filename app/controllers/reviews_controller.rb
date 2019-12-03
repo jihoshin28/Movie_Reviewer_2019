@@ -2,14 +2,20 @@ class ReviewsController < ApplicationController
     before_action :find_review, only: [:edit, :update, :destroy]
 
     def index
+        @movie = Movie.find(params[:id])
+        @current_user = User.find_by(name: session[:name])
         @reviews = Review.all
     end
 
     def new
+        @movie = Movie.find(params[:id])
+        @current_user = User.find_by(name: session[:name])
         @review = Review.new
     end
 
     def create
+        @movie = Movie.find(params[:id])
+        @current_user = User.find_by(name: session[:name])
         @review = Review.new(review_params)
         if @review.valid?
             @review.save
@@ -20,11 +26,18 @@ class ReviewsController < ApplicationController
           end
     end
 
+    def show 
+        @movie = Movie.find(params[:id])
+        @current_user = User.find_by(name: session[:name])
+    end
+
     def edit
         
     end
 
     def update
+        @movie = Movie.find(params[:id])
+        @current_user = User.find_by(name: session[:name])
         if @review.valid?
             @review.save
             redirect_to @review

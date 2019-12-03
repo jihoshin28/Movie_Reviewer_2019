@@ -1,0 +1,10 @@
+<h1>All Users</h1>
+
+<% @users.each do |user| %>
+<div><%= link_to user.name, user_path(user) %></div>
+<div><%= user.age %></div>
+<div><%= user.email %></div>
+<div><%= user.country %></div>
+<div><%= user.bio %></div>
+<br><br>
+<% end %>

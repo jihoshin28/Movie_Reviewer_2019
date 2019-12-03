@@ -1,0 +1,12 @@
+<h1> Profile for <%= @user.name%></h1>
+<br>
+<div><%= @user.age %></div>
+<div><%= @user.password %></div>
+<div><%= @user.email %></div>
+<div><%= @user.country %></div>
+<div><%= @user.bio %></div>
+
+<%= form_tag('/sessions', method: 'delete') do %>
+  <input type=submit value='logout'>
+<% end %>
+<br>
