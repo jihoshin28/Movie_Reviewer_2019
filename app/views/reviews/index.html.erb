@@ -1,0 +1,10 @@
+<<<<<<< Updated upstream
+=======
+<center><h1>All Reviews for <%= @movie.name%></h1>
+<div>
+<% @reviews.each do |review| %>
+<%= link_to "Review by #{@current_user.name}", review_path(review) %><br><br>
+<% end %> 
+</div>
+</center>
+>>>>>>> Stashed changes
