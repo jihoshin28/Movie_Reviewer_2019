@@ -12,15 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_12_02_222058) do
 
-  create_table "movie_reviews", force: :cascade do |t|
-    t.integer "movie_id"
-    t.integer "user_id"
-    t.integer "rating"
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "director"
@@ -28,6 +19,15 @@ ActiveRecord::Schema.define(version: 2019_12_02_222058) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "movie_id"
+    t.integer "user_id"
+    t.integer "rating"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
