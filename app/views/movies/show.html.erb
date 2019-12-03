@@ -1,0 +1,6 @@
+<center><h1><%= @movie.title %></h1>
+<label>Directed By: </label><%= @movie.director %><br><br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/<%=@movie.trailer_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<p><%= @movie.description %></p>
+
+</center>
