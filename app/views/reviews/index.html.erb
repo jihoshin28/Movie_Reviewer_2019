@@ -1,7 +1,7 @@
-<center><h1>2019 Best Movies</h1>
+<center><h1>All Reviews for <%= @movie.name%></h1>
 <div>
-<% @reviews.each do |movie| %>
-<%= link_to movie.title, movie_path(movie) %><br><br>
-<% end %>
+<% @reviews.each do |review| %>
+<%= link_to "Review by #{@current_user.name}", review_path(review) %><br><br>
+<% end %> 
 </div>
 </center>

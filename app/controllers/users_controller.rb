@@ -10,14 +10,14 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
+        @user = User.create(user_params)
         if @user.valid?
             @user.save
             redirect_to @user
-          else
+        else
             flash[:errors] = @user.errors.full_messages
             render :new
-          end
+        end
     end
 
     def show
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
             redirect_to @user
           else
             flash[:errors] = @user.errors.full_messages
-            redirect_to edit_dog_path
+            redirect_to edit_user_path
           end
     end
 
@@ -46,11 +46,11 @@ class UsersController < ApplicationController
     private
 
     def find_user
-        @user = User.find_by(params[:id])
+        @user = User.find(params[:id])
     end
 
     def user_params
-        params.require(:user).permit(:name, :password, :age, :country, :bio)
+        params.require(:user).permit(:name, :password, :password_confirmation, :age, :email, :country, :bio)
     end
 
 end
