@@ -1,8 +1,14 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :edit, :update, :destroy]
-    
+    before_action :authorized, only: [:new, :edit, :delete, :add, :update]
+
     def index
         @reviews = Review.all
+    end
+
+    def add
+        @review = Review.new
+        @user = User.find(session[:user_id])
     end
 
     def new
@@ -28,11 +34,11 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        
     end
 
     def update
-        @current_user = User.find_by(name: session[:name])
+        @user = User.find(session[:user_id])
+        @review.assign_attributes(review_params)
         if @review.valid?
             @review.save
             redirect_to @review

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :movies, only: [:index, :show]
   root 'application#welcome'
   get '/login' => 'sessions#new'
+  get '/add' => 'reviews#add'
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
   get '/signup' => 'users#new'

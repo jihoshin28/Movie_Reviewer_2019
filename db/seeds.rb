@@ -50,3 +50,5 @@ User.create(name: "Asia", password: "test789", age: 26, email: "hello@gmail.com"
 User.create(name: "Samurai", password: "sepuku", age: 25, email: "dishonorfamily@gmail.com", country: "Japan", bio: "Forebuh")
 User.create(name: "Bob", password: "test000", age: 24, email: "arya721@gmail.com", country: "America", bio: "Fat forever")
 
+
+Review.create(title: Faker::Name.name, rating: 5, content:"good", user_id:1,movie_id:1)

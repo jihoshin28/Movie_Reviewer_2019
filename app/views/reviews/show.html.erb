@@ -3,3 +3,9 @@
 <div><%= @review.title %></div>
 <div><%= @review.rating %></div>
 <div><%= @review.content %></div>
+<% if logged_in?%>
+<%@current_user = User.find(session[:user_id])%>
+<%end%>
+<% if logged_in? && @current_user == @review.user %>
+<br><%= link_to "Edit Review", edit_review_path %>
+<% end %>

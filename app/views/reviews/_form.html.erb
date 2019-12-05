@@ -4,13 +4,11 @@
     <% end %>
 <% end %>
 
-<div><%="Post review for #{@movie.title} "%></div>
+<div><%="Post review for #{@review.movie.title}"%></div>
 <div><%=@user.name%></div>
-<%@review.movie = @movie%>
-<%@review.user = @user%>
 <%= form_for @review do |f| %>
-  <%= f.hidden_field :movie_id, :value => @movie.id %>
-  <%= f.hidden_field :user_id, :value => @user.id %>
+  <%= f.hidden_field :movie_id, :value => @review.movie.id %>
+  <%= f.hidden_field :user_id, :value => @review.user.id %>
   <br><br>
   <%= f.label :title%>
   <%= f.text_field :title%>
