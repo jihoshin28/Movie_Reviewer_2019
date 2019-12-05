@@ -6,5 +6,6 @@ class MoviesController < ApplicationController
 
     def show
         @movie = Movie.find(params[:id])
+        session[:movie_id] = @movie.id
     end
 end

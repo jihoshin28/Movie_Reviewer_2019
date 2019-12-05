@@ -1,21 +1,17 @@
 class ReviewsController < ApplicationController
-    before_action :find_review, only: [:edit, :update, :destroy]
-
+    before_action :find_review, only: [:show, :edit, :update, :destroy]
+    
     def index
-        @movie = Movie.find(params[:id])
-        @current_user = User.find_by(name: session[:name])
         @reviews = Review.all
     end
 
     def new
-        @movie = Movie.find(params[:id])
-        @current_user = User.find_by(name: session[:name])
+        @user = User.find(session[:user_id])
+        @movie = Movie.find(session[:movie_id]) 
         @review = Review.new
     end
 
     def create
-        @movie = Movie.find(params[:id])
-        @current_user = User.find_by(name: session[:name])
         @review = Review.new(review_params)
         if @review.valid?
             @review.save
@@ -27,8 +23,8 @@ class ReviewsController < ApplicationController
     end
 
     def show 
-        @movie = Movie.find(params[:id])
-        @current_user = User.find_by(name: session[:name])
+        @user = @review.user
+        @movie = @review.movie
     end
 
     def edit
@@ -36,7 +32,6 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @movie = Movie.find(params[:id])
         @current_user = User.find_by(name: session[:name])
         if @review.valid?
             @review.save
@@ -55,11 +50,11 @@ class ReviewsController < ApplicationController
     private
 
     def find_review
-        @review = Review.find_by(params[:id])
+        @review = Review.find(params[:id])
     end
 
     def review_params
-        params.require(:review).permit(:content, :rating)
+        params.require(:review).permit(:content, :rating, :movie_id, :user_id, :title)
     end
 
 end

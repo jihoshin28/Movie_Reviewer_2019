@@ -1,7 +1,11 @@
-<center><h1>All Reviews for <%= @movie.name%></h1>
+<center>
+<%@reviews.each do |review|%>
+<h1>All Reviews for <%= @reviews.title%></h1>
+<%end%>
+<%= @user.name%>
 <div>
 <% @reviews.each do |review| %>
-<%= link_to "Review by #{@current_user.name}", review_path(review) %><br><br>
+// <%= @current_user.name%><br><br>
 <% end %> 
 </div>
 </center>
