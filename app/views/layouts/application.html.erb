@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MovieReviewer2019</title>
+    <title>MovieCritic</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,60 @@
   </head>
 
   <body>
-    <%= yield %>
+ <div class="sidenav">
+      <div class="logo">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.png" %>
+        <% end %>
+      </div>
+      <%= link_to root_path do %>
+      <i class="fa fa-home fa-fw" aria-hidden="true" ></i>&nbsp; Home
+      <% end %>
+      <%= link_to movies_path do %>
+      <i class="fa fa-film fa-fw" aria-hidden="true" ></i>&nbsp; Movies
+      <% end %>
+
+      <%= link_to reviews_path do %>
+      <i class="fa fa-pencil fa-fw" aria-hidden="true" ></i>&nbsp; Reviews
+      <% end %>
+
+      <% if logged_in? %>
+      <% @user = User.find(session[:user_id])%>
+      <%= link_to @user do %>
+      <i class="fa fa-user fa-fw" aria-hidden="true" ></i>&nbsp; Profile
+      <% end %>
+
+
+      <%= link_to "/sessions", method: 'delete' do %>
+      <i class="fa fa-sign-out fa-fw" aria-hidden="true" ></i> &nbsp; Sign Out
+      <% end %>
+
+            <% else %>
+      <%= link_to "/login/" do %>
+      <i class="fa fa-user fa-fw" aria-hidden="true" ></i>&nbsp; Login
+       <% end %>
+       
+       <%= link_to "/signup/" do %>
+      <i class="fa fa-address-card fa-fw" aria-hidden="true" ></i>&nbsp; Sign Up
+       <% end %>
+      
+    
+
+      <%end%>
+    </div>
+
+    <main>
+        <%= yield %>
+    </main>
+    
+ 
+    <div class="rightnav">
+    <br>
+    <h3><%= "Search Bar" %></h3>
+    <br><br>
+    <h3><%= "Recent Reviews" %></h3>
+    </div>
+      
+
   </body>
 </html>
