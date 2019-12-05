@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     end
 
     def update
+        @user.assign_attributes(user_params)
         if @user.valid?
             @user.save
             redirect_to @user
