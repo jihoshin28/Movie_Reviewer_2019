@@ -29,11 +29,12 @@ class ReviewsController < ApplicationController
     end
 
     def show 
-        @user = @review.user
-        @movie = @review.movie
+       @user = @review.user
+       @movie = @review.movie
     end
 
     def edit
+        
     end
 
     def update
