@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+
+ @import "font-awesome";
+ 
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+ 
+ body {
+   background-color: #fdfdfd;
+   overflow-x: hidden;
+   margin: 0;
+   font-family: 'Karla', sans-serif;
+ }
+ 
+ * {
+   box-sizing: border-box;
+ }
+ 
+ 
+ 
