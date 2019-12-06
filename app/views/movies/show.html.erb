@@ -2,8 +2,10 @@
 <b><label>Directed By: </label></b><%= @movie.director %><br><br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=@movie.trailer_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 <p><%= @movie.description %></p>
-<br><br>
-</center>
+
+<%= link_to "+ Add review for #{@movie.title}", new_review_path %>
+<br><br><br>
+</center><br>
 <h2>Reviews:</h2><br>
 
 <div>
@@ -15,4 +17,4 @@
 </div>
 <br><br><br>
 
-<%= link_to "Write a review for #{@movie.title}", new_review_path %>
+

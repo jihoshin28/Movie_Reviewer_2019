@@ -31,6 +31,33 @@ input {
  min-width: 50px;
 }
 
+main input {
+  min-width: 50px;
+  border: 0px;
+  border-bottom: 1.5px solid #c7c7c7;
+  font-size: 90%;
+  padding-bottom: 3px;
+}
+
+main input[type="submit" i] {
+  text-decoration: none;
+  color: #00579e;
+  font-weight: 100;
+  border: 1px solid #00579e;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 86%;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+
+main input[type="submit" i]:hover{
+  background-color:#00579e;
+  color:#fff;
+}
+
+
+
 i {
   color: grey;
     font-size: 88%;
@@ -59,6 +86,11 @@ i {
   display: block !important;
   width: 170px;
 }
+
+.field_with_errors {
+  display: inline;
+}
+
 
 .sidenav .logo a {
 background:#fff !important;

@@ -1,4 +1,4 @@
-<% if !!flash[:errors] %>
+<h1>Create User</h1><% if !!flash[:errors] %>
     <% flash[:errors].each do |e| %>
         <p><%= e %></p>
     <% end %>
@@ -17,7 +17,7 @@
   <%= f.label "Display Name"%><font color="darkred"><%="*"%></font>
   <%= f.text_field :name %>
   <br><br>
-  <%= f.label "Image URL"%>
+  <%= f.label "Avatar URL"%>
   <%= f.text_field :img_url%>
   <br><br>
   <%= f.label "Email"%><font color="darkred"><%="*"%></font>
@@ -27,7 +27,7 @@
   <%= f.text_field :country %>
   <br><br>
     <%= f.label :age %>
-  <%= f.number_field :age %>
+<input type="number" name="age" min="13" max="110">
   <br><br>
   <%= f.label :bio %>
   <%= f.text_area :bio %>
