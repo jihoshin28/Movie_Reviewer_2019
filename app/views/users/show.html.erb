@@ -1,15 +1,20 @@
 <h1><%= @user.name%>'s Profile</h1>
 <br>
-<div><img src="<%=@user.img_url %>"></div>
-<div><%= @user.username %></div>
+<div class="user-prof"><img src="<%=@user.img_url %>"></div>
+<div></div>
 <div><%= @user.name %></div>
-<div><%= @user.age %></div>
-<div><%= @user.password %></div>
+<label>Age: </label><%= @user.age %>
 <div><%= @user.email %></div>
 <div><%= @user.country %></div>
 <div><%= @user.bio %></div>
-<br>
-<%= link_to "Edit Profile", edit_user_path(@user)%>
-
-
+<br><Br>
+<div><a class="email" href="mailto:<%= @user.email %>"%><%="Email"%> <%= @user.name %></a>
+</div>
+<br><br><br>
+<% if logged_in?%>
+<%@current_user = User.find(session[:user_id])%>
+<%end%>
+<% if logged_in? && @current_user == @user %>
+&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Edit Profile", edit_user_path(@user)%>
+<%end%>
 <br>

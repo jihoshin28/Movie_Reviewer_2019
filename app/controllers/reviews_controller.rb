@@ -22,19 +22,22 @@ class ReviewsController < ApplicationController
         if @review.valid?
             @review.save
             redirect_to @review
-          else
+        else
             flash[:errors] = @review.errors.full_messages
             redirect_to new_review_path
-          end
+        end
     end
 
     def show 
        @user = @review.user
        @movie = @review.movie
+       @comment = Comment.new
+       session[:review_id] = @review.id
     end
 
     def edit
-        
+       @user = @review.user
+       @movie = @review.movie
     end
 
     def update
