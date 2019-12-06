@@ -1,7 +1,7 @@
 p.howdy {
   font-size: 18px;
-  padding-top: 14px;
-  padding-bottom: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
    .rightnav {
@@ -16,8 +16,18 @@ p.howdy {
     border-left: 1px solid rgba(185, 184, 184, 0.548);
     padding: 10px;
     padding-left: 20px !important;
+    font-size: 86%;
   }
   
+  .rightnav a {
+    color: #980905 !important;
+}
+
+  .rightnav a:visited {
+    color: #666 !important;
+}
+
+
   
   /* The navigation menu links */
   // .rightnav a {

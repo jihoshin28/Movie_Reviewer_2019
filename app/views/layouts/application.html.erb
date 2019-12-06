@@ -22,11 +22,18 @@
       <%= link_to movies_path do %>
       <i class="fa fa-film fa-fw" aria-hidden="true" ></i>&nbsp; Movies
       <% end %>
+       <%= link_to reviews_path do %>
+      <i class="fa fa-book fa-fw" aria-hidden="true" ></i>&nbsp; Reviews
+      <% end %>
+      <%= link_to users_path do %>
+      <i class="fa fa-glass fa-fw" aria-hidden="true" ></i>&nbsp; Critics
+      <% end %>
+      
+      <% if logged_in? %>
+      <% @user = User.find(session[:user_id])%>
       <%= link_to add_path do %>
       <i class="fa fa-plus fa-fw" aria-hidden="true" ></i>&nbsp; Add Review
       <% end %>
-      <% if logged_in? %>
-      <% @user = User.find(session[:user_id])%>
       <%= link_to @user do %>
       <i class="fa fa-user fa-fw" aria-hidden="true" ></i>&nbsp; Profile
       <% end %>
@@ -56,7 +63,7 @@
 
     <% if logged_in? %>
       <% @user = User.find(session[:user_id])%>
-      <p class="howdy"><%="Howdy, #{@user.name}"%></p>
+      <p class="howdy"><%="Howdy, #{@user.name} ㋡"%></p>
     <% end %>
 
     <h3><%= "Search Movies" %></h3>

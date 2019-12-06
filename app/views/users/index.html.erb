@@ -1,10 +1,26 @@
-<h1>All Users</h1>
+<h1>All Critics</h1><br>
 
 <% @users.each do |user| %>
-<div><%= link_to user.name, user_path(user) %></div>
-<div><%= user.age %></div>
+
+
+<div class="user-prof">
+<%= link_to user_path(user) do %>
+<img src="<%=user.img_url %>">
+<%end%>
+</div>
+
+
+
+
+
+<div class="down"><%= link_to user.name, user_path(user) %></div>
+<div><label>Age: </label><%= user.age %></div>
 <div><%= user.email %></div>
 <div><%= user.country %></div>
-<div><%= user.bio %></div>
-<br><br>
+<div><i>"<%= user.bio %>"</i></div>
+<br><br><br>
 <% end %>
+
+
+
+

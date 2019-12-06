@@ -1,13 +1,13 @@
-<% if !!flash[:errors] %>
-    <% flash[:errors].each do |e| %>
-        <p><%= e %></p>
-    <% end %>
+<center><h1>Login</h1><% if !!flash[:errors] %>
+    <%= flash[:errors]%><br><br>
+    
 <% end %>
 
 <%= form_tag sessions_path do %> 
     <%= label_tag "Username" %>
-    <%= text_field_tag :username, nil, placeholder: "Username" %>
+    <%= text_field_tag :username, nil, placeholder: "Username" %><br><br>
     <%= label_tag "Password" %>
-    <%= password_field_tag :password, nil, placeholder: "Password" %>
+    <%= password_field_tag :password, nil, placeholder: "Password" %><br><br>
     <%= submit_tag "Log In"%>
 <% end %>
+</center>

@@ -19,13 +19,15 @@
 <%@current_user = User.find(session[:user_id])%>
 <%end%>
 <% if logged_in? && @current_user == @review.user %>
-<br><h2><%= link_to "Edit Review", edit_review_path %></h2>
+<br><div class="editlink"><%= link_to "Edit Review", edit_review_path %></div>
 <% end %>
 
  <br><br>
 <div class="prof">
+<%= link_to user_path(@user) do %>
 <img src="<%= @user.img_url%>">
-<p><%= link_to @user.name, user_path(@user)%></p>
+<% end %>
+<p>&nbsp;&nbsp;&nbsp;<%= link_to @user.name, user_path(@user)%></p>
 </div>
 
   <br><br><br><br><br><br>
@@ -37,11 +39,12 @@
 <br><br>
 <h2><%= "Comments:"%></h2>
 <br>
-    <% if !@review.comments.empty? %>
+    <% if !@review.comments.empty?%>
     <% @review.comments.each do |comment|%>
     <div>
     <%= comment.content%><br>
-    <%= "- #{current_user.name}"%></div>
+    - <%= link_to comment.user.name, user_path(comment.user) %><%= " at #{comment.created_at.strftime("%I:%M %p on %m/%d/%Y")}"%></div>     
+    
     <% end %>
     <% else %>
      There are currently no comments.

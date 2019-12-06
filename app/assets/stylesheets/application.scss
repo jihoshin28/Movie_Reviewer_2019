@@ -27,6 +27,47 @@
    margin: 0;
    font-family: 'Karla', sans-serif;
  }
+input {
+ min-width: 50px;
+}
+
+i {
+  color: grey;
+    font-size: 88%;
+}
+ .editlink {
+  padding-top: 10px;
+ }
+
+ .editlink a {
+  text-decoration: none;
+  color: #00579e;
+  font-weight: 100;
+  border: 1px solid #00579e;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+ }
+
+ .editlink a:hover{
+  background-color:#00579e;
+  color:#fff;
+}
+
+ .sidenav .logo img {
+  background: #fff !important;
+  display: block !important;
+  width: 170px;
+}
+
+.sidenav .logo a {
+background:#fff !important;
+display: block !important;
+width: 20% !important;
+padding: 0px !important;
+margin: 14px 32px;
+
+}
 
 
  * {
